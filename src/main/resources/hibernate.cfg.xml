@@ -11,25 +11,16 @@
         <property name="hibernate.connection.password"></property>
 
         <!-- Hibernate properties -->
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <!-- <property name="hibernate.show_sql">true</property> -->
         <property name="hibernate.show_sql">false</property>
         <property name="hibernate.format_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
 
-        <!-- Connection pool -->
-        <property name="hibernate.c3p0.min_size">5</property>
-        <property name="hibernate.c3p0.max_size">20</property>
-        <property name="hibernate.c3p0.timeout">300</property>
-
-        <!-- Entity mapping -->
-        <mapping class="com.tnf.entities.User"/>
-        <mapping class="com.tnf.entities.Cart"/>
-        <mapping class="com.tnf.entities.Customer"/>
-        <mapping class="com.tnf.entities.Order"/>
-        <mapping class="com.tnf.entities.Product"/>
-        <mapping class = "com.tnf.entities.Student"/>
-        <mapping class = "com.tnf.entities.Employee"/>
-        <mapping class = "com.tnf.entities.Address"/>
+        <!-- Entity mappings (Corporate Training & Feedback Platform) -->
+        <mapping class="com.tnf.training.entity.Trainer"/>
+        <mapping class="com.tnf.training.entity.TrainingBatch"/>
+        <mapping class="com.tnf.training.entity.Trainee"/>
+        <mapping class="com.tnf.training.entity.Feedback"/>
     </session-factory>
 </hibernate-configuration>
