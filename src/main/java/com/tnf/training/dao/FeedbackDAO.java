@@ -1,19 +1,23 @@
 package com.tnf.training.dao;
 
 import java.util.List;
+import java.util.Optional;
 
-public class FeedbackDAO {
-    public void submitFeedback(int traineeId, int trainerId, String feedback) {}
+import com.tnf.training.entity.Feedback;
+public interface FeedbackDAO {
 
-    public String getFeedbackbyId(int feedbackId) {
-        return null;
-    }
+    // Save a new feedback and return it with the generated id.
+    Feedback save(Feedback feedback);
 
-    public List<String> getAllFeedbacks() {
-        return null;
-    }
+    // Find one feedback by id, or empty if not found.
+    Optional<Feedback> findById(Long feedbackId);
 
-    public void getTrainerWiseFeedback(int trainerId) {}
+    // Get all feedback records.
+    List<Feedback> findAll();
 
-    public void getBatchWiseFeedback(int batchId) {}
+    // Get all feedback for a trainer.
+    List<Feedback> findByTrainer(Long trainerId);
+
+    // Get all feedback for a batch.
+    List<Feedback> findByBatch(Long batchId);
 }
