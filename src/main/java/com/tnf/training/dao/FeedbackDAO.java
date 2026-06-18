@@ -1,19 +1,26 @@
 package com.tnf.training.dao;
 
+import com.tnf.training.entity.Feedback;
+import org.hibernate.Session;
+
 import java.util.List;
+import java.util.Optional;
 
-public class FeedbackDAO {
-    public void submitFeedback(int traineeId, int trainerId, String feedback) {}
+// Persistence contract for Feedback (Group 4). The service passes the Session so it owns the transaction.
+public interface FeedbackDAO {
 
-    public String getFeedbackbyId(int feedbackId) {
-        return null;
-    }
+    // Persist a new feedback in the given session.
+    void save(Session session, Feedback feedback);
 
-    public List<String> getAllFeedbacks() {
-        return null;
-    }
+    // Find one feedback by id, or empty if not found.
+    Optional<Feedback> findById(Session session, Long feedbackId);
 
-    public void getTrainerWiseFeedback(int trainerId) {}
+    // Get all feedback records.
+    List<Feedback> findAll(Session session);
 
-    public void getBatchWiseFeedback(int batchId) {}
+    // Get all feedback for a trainer.
+    List<Feedback> findByTrainer(Session session, Long trainerId);
+
+    // Get all feedback for a batch.
+    List<Feedback> findByBatch(Session session, Long batchId);
 }
