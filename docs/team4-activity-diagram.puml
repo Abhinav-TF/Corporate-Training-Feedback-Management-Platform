@@ -29,10 +29,9 @@ repeat
       :Begin transaction;
       :Build Feedback, link\ntrainer / trainee / batch by id;
       :Persist feedback (DAO);
-      if (Saved OK?) then (yes)
-        :Commit transaction;
+      if (Commit) then (success)
         :Show new feedback id; <<#D3F9D8>>
-      else (no)
+      else (failure)
         :Rollback transaction; <<#FFE3E3>>
         :Show error; <<#FFE3E3>>
       endif
@@ -66,7 +65,7 @@ repeat
     :Display report result; <<#FFF4E6>>
 
   case (Exit)
-    :Shutdown Hibernate;
+    :Exit System;
     stop
 
   endswitch
